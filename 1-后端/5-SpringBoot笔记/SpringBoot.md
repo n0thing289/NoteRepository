@@ -2723,12 +2723,6 @@ http {
 
 # jmeter
 
-
-
-# maven 分模块开发&打包
-
-
-
 # Spring Security
 
 >适用于security框架2.5.X ~= springboot 2.5.X 2.7.X
@@ -2960,7 +2954,9 @@ LoginUser才是实现UserDetails接口的pojo类
 
 # Maven 多模块开发，允许，测试，打包
 
-
+>在SpringBoot项目中，框架提供了一套自己的打包机制，是通过spring-boot-maven-plugin插件来实现的。可以在MAVEN的生命周期package后重新打包，生成新的JAR包。spring-boot-maven-plugin插件将SpringBoot的项目打包成FAT-JAR，也就是说将项目启动运行所需要的JAR都包含进来了。
+>普通的JAR和SpringBoot打包成的FAT-JAR内部结构是不一样的。
+>
 
 建父子工程
 
