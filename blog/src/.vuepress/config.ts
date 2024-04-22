@@ -13,4 +13,11 @@ export default defineUserConfig({
 
   // 和 PWA 一起启用
   // shouldPrefetch: false,
+
+  //我添加的配置
+  markdown: {
+    headers: {
+      level: [2, 3, 4, 5, 6, 7]
+    }
+  },
 });

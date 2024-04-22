@@ -1,6 +1,10 @@
-title:Spring Boot笔记
+---
+title: Spring-Boot
+---
 
-# SpringBoot
+
+
+## SpringBoot
 
 springboot集成Redis和Dubbo跳过
 
@@ -12,7 +16,7 @@ api地址：[Overview (Spring Boot 2.7.18 API)](https://docs.spring.io/spring-bo
 
 
 
-# 第一章  JavaConfig
+## 第一章  JavaConfig
 
 1. 为什么要使用 Spring Boot
 
@@ -30,7 +34,7 @@ api地址：[Overview (Spring Boot 2.7.18 API)](https://docs.spring.io/spring-bo
 
 
 
-## 1.1 JavaConfig（Spring）
+### 1.1 JavaConfig（Spring）
 
 JavaConfig: 使用java类作为xml配置文件的替代， 是配置spring容器的纯java的方式。 在这个java类这可以创建java对象，把对象放入spring容器中（注入到容器）， 
 
@@ -100,7 +104,7 @@ public class SpringConfig {
 
 
 
-## 1.2 @ImporResource
+### 1.2 @ImporResource
 
 @ImportResource 作用导入其他的xml配置文件， 等于 在xml 
 
@@ -121,7 +125,7 @@ public class SpringConfig {
 
 
 
-## 1.3 @PropertySource
+### 1.3 @PropertySource
 
 @PropertyResource: 读取properties属性配置文件。 使用属性配置文件可以实现外部化配置 ，
 
@@ -148,9 +152,9 @@ public class SpringConfig {
 
 
 
-# 第二章 Spring Boot入门
+## 第二章 Spring Boot入门
 
-## 2.1 介绍
+### 2.1 介绍
 
 SpringBoot是Spring中的一个成员， 可以简化Spring，SpringMVC的使用。 他的核心还是IOC容器。
 
@@ -196,9 +200,9 @@ SpringBoot是Spring中的一个成员， 可以简化Spring，SpringMVC的使用
 
 
 
-## 2.2 创建Spring Boot项目
+### 2.2 创建Spring Boot项目
 
-### 2.2.1 第一种方式， 使用Spring提供的初始化器， 就是向导创建SpringBoot应用
+#### 2.2.1 第一种方式， 使用Spring提供的初始化器， 就是向导创建SpringBoot应用
 
 
 
@@ -218,7 +222,7 @@ SpringBoot项目的结构：
 
 
 
-### 2.2.2  使用国内的地址
+#### 2.2.2  使用国内的地址
 
 
 
@@ -228,7 +232,7 @@ https://start.springboot.io
 
 
 
-### 2.2.3使用maven构建
+#### 2.2.3使用maven构建
 
 1. new module
 2. 引入springboot父项目
@@ -236,7 +240,7 @@ https://start.springboot.io
 
 
 
-## 第一个webApp
+### 第一个webApp
 
 1. 构建好项目（springboot-005-mvc）
 2. 写一个Rest风格的controller类
@@ -249,7 +253,7 @@ https://start.springboot.io
 
 
 
-## 2.3  主程序注解的使用
+### 2.3  主程序注解的使用
 
 1. @SpringBootConfiguration
 
@@ -293,7 +297,7 @@ public @interface SpringBootConfiguration {
 
 
 
-## 2.4 SpringBoot的配置文件
+### 2.4 SpringBoot的配置文件
 
 配置文件名称： application 不能改必须这么叫
 
@@ -326,7 +330,7 @@ server:
 
 
 
-## 2.5 多环境配置
+### 2.5 多环境配置
 
 有开发环境， 测试环境， 上线的环境。
 
@@ -353,7 +357,7 @@ server:
 
 
 
-## 2.6 使用@ConfigurationProperties
+### 2.6 使用@ConfigurationProperties
 
 @ConfigurationProperties: 把配置文件的数据映射为java对象。
 
@@ -422,7 +426,7 @@ public class SchoolInfo {
 
 
 
-## 写/读取配置文件自定义/非自定义数据
+### 写/读取配置文件自定义/非自定义数据
 
 application.properties
 
@@ -462,7 +466,7 @@ school:
 
 
 
-## 2.7  使用jsp
+### 2.7  使用jsp
 
 SpringBoot不推荐使用jsp ，而是使用模板技术代替jsp
 
@@ -540,7 +544,7 @@ SpringBoot不推荐使用jsp ，而是使用模板技术代替jsp
 
 
 
-## 2.8 使用容器
+### 2.8 使用容器
 
 你想通过代码，从容器中获取对象。
 
@@ -582,7 +586,7 @@ public UserService makeUserService(){
 
 
 
-## 2.9 使用ComnandLineRunner 接口 ，  ApplcationRunner接口
+### 2.9 使用ComnandLineRunner 接口 ，  ApplcationRunner接口
 
 这两个接口都 有一个run方法。 执行时间在容器对象创建好后， 自动执行run（）方法。
 
@@ -605,11 +609,11 @@ public interface ApplicationRunner {
 
 
 
-# 第三章 Web组件
+## 第三章 Web组件
 
 讲三个内容： 拦截器， Servlet ，Filter
 
-## 3.1 拦截器
+### 3.1 拦截器
 
 拦截器是SpringMVC中一种对象，能拦截器对Controller的请求。
 
@@ -679,7 +683,7 @@ public class MyAppConfig implements WebMvcConfigurer {
 2. 写一个配置类实现一个接口 WebMvcConfigurer 并加上@Configuration注解
 3. 实现addInterceptors方法, 写拦截规则
 
-## 3.2  Servlet
+### 3.2  Servlet
 
 >模块: springboot-13-servlet
 >
@@ -753,7 +757,7 @@ public class WebApplictionConfig {
 
 
 
-## 3.3 过滤器Filter
+### 3.3 过滤器Filter
 
 >模块: springboot-14-filter
 >
@@ -809,7 +813,7 @@ public class WebApplicationConfig {
 
 
 
-## 3.4 字符集过滤器
+### 3.4 字符集过滤器
 
 CharacterEncodingFilter : 解决post请求中乱码的问题
 
@@ -817,7 +821,7 @@ CharacterEncodingFilter : 解决post请求中乱码的问题
 
 
 
-### 第一种方式：
+#### 第一种方式：
 
 >模块: springboot-15-character-filter
 >
@@ -872,7 +876,7 @@ server.servlet.encoding.enabled=false
 
 
 
-### 第二种方式
+#### 第二种方式
 
 >模块: springboot-16-character-properties
 >
@@ -898,7 +902,7 @@ server.servlet.encoding.force=true
 
 
 
-## 异常处理器
+### 异常处理器
 
 ```java
 @RestControllerAdvice//@Controller + @ResponseBody + ...
@@ -930,7 +934,7 @@ public class ProjectExceptionAdvice {
 
 
 
-# 第四章 ORM 操作 MySQL
+## 第四章 ORM 操作 MySQL
 
 >springboot-017-mapper
 >
@@ -974,7 +978,7 @@ public class ProjectExceptionAdvice {
 
 
 
-### 第一种方式 ： @Mapper
+#### 第一种方式 ： @Mapper
 
 @Mapper：放在dao接口的上面， 每个接口都需要使用这个注解。
 
@@ -992,7 +996,7 @@ public interface StudentDao {
 
 
 
-### 第二种方式  @MapperScan
+#### 第二种方式  @MapperScan
 
 
 
@@ -1009,7 +1013,7 @@ public class Application {
 
 
 
-### 第三种方式： Mapper文件和Dao接口分开管理
+#### 第三种方式： Mapper文件和Dao接口分开管理
 
 >==按老杜教的建包放mapper.xml文件的方式, 不需要以下这些配置 (已测试通过)==
 
@@ -1044,7 +1048,7 @@ mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 
-### 第四个  事务
+#### 第四个  事务
 
 Spring框架中的事务：
 
@@ -1098,7 +1102,7 @@ public int addStudent(Student student) {
 
 
 
-# 第五章 接口架构风格 —RESTful
+## 第五章 接口架构风格 —RESTful
 
 
 
@@ -1116,7 +1120,7 @@ public int addStudent(Student student) {
 
 ​                                      在地址上提供了 访问的资源名称addStudent, 在其后使用了get方式传递参数。
 
-### 5.1  REST
+#### 5.1  REST
 
 RESTful架构风格
 
@@ -1262,7 +1266,7 @@ RESTful架构风格
 
 
 
-### 5.2  在页面中或者ajax中，支持put，delete请求
+#### 5.2  在页面中或者ajax中，支持put，delete请求
 
 在SpringMVC中 有一个过滤器， 支持post请求转为put ,delete
 
@@ -1279,11 +1283,11 @@ RESTful架构风格
 1. application.properties(yml) : 开启使用 HiddenHttpMethodFilter 过滤器
 2. 在请求页面中，包含 _method参数， 他的值是 put， delete  ，  发起这个请求使用的post方式
 
-## rest看springmvc的rest内容就好
+### rest看springmvc的rest内容就好
 
 知识点没区别
 
-# 第六章 Redis
+## 第六章 Redis
 
 Redis ： 一个NoSQL数据库，  常用作 缓存使用 （cache）
 
@@ -1301,7 +1305,7 @@ Spring,SpringBoot中有 一个RedisTemplate（StringRedisTemplate） ，处理�
 
 
 
-## 6.1  配置Windows版本的redis
+### 6.1  配置Windows版本的redis
 
 Redis-x64-3.2.100.rar 解压缩到一个 非中文 的目录
 
@@ -1338,7 +1342,7 @@ data-redis使用的   lettuce 客户端库
 
 
 
-## 6.2 对比 StringRedisTemplate 和 RedisTemplate 
+### 6.2 对比 StringRedisTemplate 和 RedisTemplate 
 
 StringRedisTemplate ： 把k，v 都是作为String处理， 使用的是String的序列化 ， 可读性好
 
@@ -1376,7 +1380,7 @@ JDK（不支持跨语言）、JSON、XML、Hessian、Kryo（不支持跨语言�
 
 
 
-Student( name=zs, age=20)   ----  { "name":"zs", "age":20 }
+`Student( name=zs, age=20)   ----  { "name":"zs", "age":20 }`
 
 
 
@@ -1405,9 +1409,9 @@ redisTemplate.opsForValue().set(k,v);
 
 
 
-# 第七章 SpringBoot集成Dubbo
+## 第七章 SpringBoot集成Dubbo
 
-## 7.1  看 SpringBoot继承Dubbo的文档
+### 7.1  看 SpringBoot继承Dubbo的文档
 
 
 
@@ -1415,7 +1419,7 @@ redisTemplate.opsForValue().set(k,v);
 
 
 
-## 7.2  公共项目
+### 7.2  公共项目
 
 独立的maven项目： 定义了接口和数据类
 
@@ -1437,7 +1441,7 @@ public interface StudentService {
 
 
 
-## 7.3  提供者
+### 7.3  提供者
 
 创建SpringBoot项目
 
@@ -1543,7 +1547,7 @@ public class ProviderApplication {
 
 
 
-## 7.4消费者
+### 7.4消费者
 
 创建SpringBoot项目
 
@@ -1624,7 +1628,7 @@ dubbo.registry.address=zookeeper://localhost:2181
 
 
 
-## 7.5 练习
+### 7.5 练习
 
 使用的技术： SpringBoot ,Dubbo, Redis, MyBatis
 
@@ -1694,9 +1698,9 @@ CREATE TABLE `student` (
 
 
 
-# 第八章  打包
+## 第八章  打包
 
-## 8.1 打包war
+### 8.1 打包war
 
 1.创建了一个jsp应用
 
@@ -1785,7 +1789,7 @@ public class JspApplication  extends SpringBootServletInitializer  {
 
 
 
-## 8.2 打包为jar
+### 8.2 打包为jar
 
 1.创建了一个包含了jsp的项目
 
@@ -1829,7 +1833,7 @@ public class JspApplication  extends SpringBootServletInitializer  {
 
 
 
-# 第九章 Thymeleaf 模板引擎
+## 第九章 Thymeleaf 模板引擎
 
 >由于比赛需要, 模板我只看到p100集, 剩下的以后再看; 并且vue是可以代替模板引擎的
 
@@ -1852,7 +1856,7 @@ html页面编写没有智能需要在html标签声明==xmlnx:th="http://www.thym
 
 放在templates目录中的html都不能直接访问, 必须经过controller跳转才行除非你配置springboot的默认规则
 
-## 9.1 表达式
+### 9.1 表达式
 
 1. 标准变量表达式 
 
@@ -1918,7 +1922,7 @@ html页面编写没有智能需要在html标签声明==xmlnx:th="http://www.thym
 
 
 
-## 9.2  Thymeleaf属性
+### 9.2  Thymeleaf属性
 
 属性是放在html元素中的，就是html元素的属性，==加入了th前缀==。  ==属性的作用不变==。    加入上th， 属性的值由模板引擎处理了。  ==在属性可以使用变量表达式==
 
@@ -1932,7 +1936,7 @@ html页面编写没有智能需要在html标签声明==xmlnx:th="http://www.thym
 
 
 
-## 9.3 each
+### 9.3 each
 
 each循环， 可以循环List，Array
 
@@ -1973,7 +1977,7 @@ value：map集合key对应的value值
 
 
 
-## 9.4 th:if
+### 9.4 th:if
 
 "th:if"  : 判断语句， 当条件为true， 显示html标签体内， 反之不显示 没有else语句
 
@@ -2027,7 +2031,7 @@ value：map集合key对应的value值
 
 
 
-## 9.5  th:switch
+### 9.5  th:switch
 
 th:switch 和 java中的swith一样的
 
@@ -2052,7 +2056,7 @@ th:switch 和 java中的swith一样的
 
 
 
-## 9.6 th:inline
+### 9.6 th:inline
 
 1. 内联text：  在html标签外，获取表达式的值
 
@@ -2095,7 +2099,7 @@ th:switch 和 java中的swith一样的
 
 
 
-## 9.7  字面量
+### 9.7  字面量
 
 例子：
 
@@ -2117,7 +2121,7 @@ th:switch 和 java中的swith一样的
 
 
 
-## 9.8  字符串连接
+### 9.8  字符串连接
 
 连接字符串有两种语法
 
@@ -2152,7 +2156,7 @@ th:switch 和 java中的swith一样的
 
 
 
-## 9.9 运算符
+### 9.9 运算符
 
 ```xml
 算术运 算： + , - - , * , / , %
@@ -2182,7 +2186,7 @@ th:switch 和 java中的swith一样的
 
 
 
-## 9.10 内置对象
+### 9.10 内置对象
 
 文档地址：https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#web-context-namespaces-for-requestsession-attributes-etc.
 
@@ -2221,7 +2225,7 @@ getServerPort=<span th:text="${#request.getServerPort()}"></span><br/>
 
 
 
-##  9.11 内置工具类
+###  9.11 内置工具类
 
 内置工具类型： Thymeleaf自己的一些类，提供对string， date ，集合的一些处理方法
 
@@ -2273,7 +2277,7 @@ getServerPort=<span th:text="${#request.getServerPort()}"></span><br/>
 
 
 
-## 9.12 自定义模板
+### 9.12 自定义模板
 
 模板是内容复用， 定义一次，在其他的模板文件中多次使用。
 
@@ -2318,9 +2322,9 @@ th:fragment="模板自定义名称"
 
 
 
-# 第十章 总结
+## 第十章 总结
 
-## 10.1 注解
+### 10.1 注解
 
 Spring + SpringMVC + SpringBoot 
 
@@ -2397,7 +2401,7 @@ Dubbo注解
 
 ```
 
-# static和templates目录
+## static和templates目录
 
 读取资源（也就是web端访问static资源）其实就很简单，Spring Boot 默认就配置了 /static/** 映射，所以无需任何配置就能访问。但是需要注意的是，如果使用了模板引擎（比如 thymeleaf），就需要手动配置，以下演示两种通过模板引擎访问static资源的方式：
 
@@ -2445,7 +2449,7 @@ Spring boot默认对/**的访问可以直接访问四个目录下的文件：
 
    
 
-# 拦截/放行静态资源
+## 拦截/放行静态资源
 
 [SSM8=SpingMVC过滤器addResourceHandlers和拦截器HandlerIntercetor=过滤器javax.servlet.Filter和DispatchServlet和AOP_spring mvc addresourcehandlers-CSDN博客](https://blog.csdn.net/hebian1994/article/details/121271301)
 
@@ -2458,7 +2462,7 @@ Spring boot默认对/**的访问可以直接访问四个目录下的文件：
 
 
 
-# 前后端交互模块
+## 前后端交互模块
 
 axios
 
@@ -2545,7 +2549,7 @@ axios.get("/mvc11/books").then((res) => {
 
 
 
-# 登录模块
+## 登录模块
 
 jwt极简入门: [【极简入门】15分钟学会JWT的使用_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1cK4y197EM/?spm_id_from=333.337.search-card.all.click&vd_source=d179dd0d9ece5a3d72eb7942bd195cb8)
 
@@ -2585,9 +2589,9 @@ jwt集群， jwt是可以在集群中任意服务器都能解析
 
 
 
-## 实现jwt
+### 实现jwt
 
-### 生成token
+#### 生成token
 
 
 
@@ -2605,7 +2609,7 @@ decode不能做验证，只可以解析负载
 
 
 
-### token存起来
+#### token存起来
 
 [vue前端利用localStorage存储token值并放到请求头headers实例_两个网站通过localstorage公用一个token-CSDN博客](https://blog.csdn.net/bentou_/article/details/105400022)
 
@@ -2626,7 +2630,7 @@ localStorage.setItem("", "")
 
 
 
-### axios发送token
+#### axios发送token
 
 axios拦截所有请求: [axios 请求拦截器&响应拦截器 - 掘金 (juejin.cn)](https://juejin.cn/post/7100470316857557006)
 
@@ -2634,13 +2638,13 @@ axios拦截所有请求: [axios 请求拦截器&响应拦截器 - 掘金 (juejin
 
 
 
-## 实现spring security整合jwt
+### 实现spring security整合jwt
 
 
 
 
 
-# 跨域问题
+## 跨域问题
 
 本地模拟跨域请求-postman [PostMan 跨域测试_postman模拟跨域-CSDN博客](https://blog.csdn.net/Joker_ZJN/article/details/125790538)
 
@@ -2675,7 +2679,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 vue项目部署到nginx
 
-# nginx使用-动静结合
+## nginx使用-动静结合
 
 [windows系统下安装Nginx以及简单使用（详解）_nginx windows-CSDN博客](https://blog.csdn.net/weixin_44251179/article/details/129700793)
 
@@ -2721,9 +2725,9 @@ http {
 
 
 
-# jmeter
+## jmeter
 
-# Spring Security
+## Spring Security
 
 >适用于security框架2.5.X ~= springboot 2.5.X 2.7.X
 
@@ -2781,7 +2785,7 @@ spring security 5.7 SecurityFilterChain写法
 
 
 
-## 三更-认证
+### 三更-认证
 
 login页面不需要默认的
 
@@ -2903,7 +2907,7 @@ LoginUser才是实现UserDetails接口的pojo类
 
 
 
-## 三更-授权
+### 三更-授权
 
 1. 配置全局授权， 给方法加注释
 
@@ -2941,18 +2945,18 @@ LoginUser才是实现UserDetails接口的pojo类
 
 
 
-## 自定义异常处理
+### 自定义异常处理
 
 1. 认证失败，异常信息会封装成AuthenticationException然后调用AuthenticationEntryPoint
 2. 授权失败，异常信息会封装成AccessDeniedException然后调用AccessDeniedHandler
 
-# redis
+## redis
 
 
 
 
 
-# Maven 多模块开发，允许，测试，打包
+## Maven 多模块开发，允许，测试，打包
 
 >在SpringBoot项目中，框架提供了一套自己的打包机制，是通过spring-boot-maven-plugin插件来实现的。可以在MAVEN的生命周期package后重新打包，生成新的JAR包。spring-boot-maven-plugin插件将SpringBoot的项目打包成FAT-JAR，也就是说将项目启动运行所需要的JAR都包含进来了。
 >普通的JAR和SpringBoot打包成的FAT-JAR内部结构是不一样的。
@@ -2985,7 +2989,7 @@ LoginUser才是实现UserDetails接口的pojo类
 
 
 
-# 前后端分离，模糊查询
+## 前后端分离，模糊查询
 
 [vue+element-get和post进行请求传递数据类型（data || params）_elementui选择器发送get请求-CSDN博客](https://blog.csdn.net/qq_41485414/article/details/87870624)
 

@@ -1,12 +1,18 @@
-# Mybatis概述
+---
+title: Mybatis
+---
 
-## JDBC的不足
+
+
+## Mybatis概述
+
+### JDBC的不足
 
 - sql语句一旦被编译，不好进行拓展增加查询字段时，要修改java代码再编译打包等等
 - 问号传值繁琐
 - 遍历结果集封装数据繁琐
 
-## 了解Mybatis
+### 了解Mybatis
 
 - 使用的版本是 3.5.10
 
@@ -27,7 +33,7 @@
 
 - mybatis是实现orm的一个框架
 
-# MyBatis入门程序
+## MyBatis入门程序
 
 - 组件版本
 
@@ -50,7 +56,7 @@
 
 - 大部分核心笔记在每章的readme.txt中
 
-# 使用mybatis完成CRUD
+## 使用mybatis完成CRUD
 
 - javaweb mvc那部分完成crud的代码
   - insert(Account act)
@@ -62,17 +68,17 @@
 
 
 
-# mybatis的configuration
+## mybatis的configuration
 
 
 
-# 手写框架（听）
+## 手写框架（听）
 
 - 跳过了，以后再补
 
-# 在web项目中使用mybatis
+## 在web项目中使用mybatis
 
-# 面向接口编程完成crud
+## 面向接口编程完成crud
 
 - 在web项目使用mybatis的不足之一： dao的源码其实很固定，我能不能不写？
 
@@ -311,12 +317,12 @@
     - 接口和文件有明确的规定: 
       - xml的namespace必须是接口的全限定接口名 
       - xml的sqlId必须是接口的方法名
-  - 使用sqlSession.getMapper(Class<?> daoInterface) 获取dao实现类
+  - 使用`sqlSession.getMapper(Class<?> daoInterface) `获取dao实现类
     - 使用接口的方法, 来调用sql语句,并且接收mysql处理结果
 
-# Mybatis小技巧
+## Mybatis小技巧
 
-# Mybatis参数处理
+## Mybatis参数处理
 
 - 接下来讲的参数处理是什么意思?
 
@@ -423,13 +429,13 @@
   - 传入一个pojo对象
   - 传入一个map对象
 
-# 查询专题
+## 查询专题
 
 - 梳理之前的
 
   - 返回一个Car
   - 返回多个Car
-  - 返回但用List<Car>接收一个Car
+  - 返回但用`List<Car>`接收一个Car
 
 - 当查询的数据没有合适的pojo接收时
 
@@ -487,7 +493,7 @@
         </settings>
         ```
 
-# 动态Sql
+## 动态Sql
 
 - 动态SQL就是 拼接sql语句
 - 动态sql的使用场景：
@@ -537,7 +543,7 @@
       <include refid="sql1" />
       ```
 
-# 高级映射
+## 高级映射
 
 - 之前学习的都是普通映射: 对单表的crud
 
@@ -637,7 +643,7 @@
 
 ------
 
-# 缓存
+## 缓存
 
 ![](./document/007-对缓存的理解.png)
 
@@ -661,7 +667,7 @@
 
 
 
-# 逆向工程
+## 逆向工程
 
 - 简单，只需要用别人的组件
 - 根据表动态生成pojo mapper mapper.xml
@@ -673,7 +679,7 @@
 
 
 
-# 分页查询
+## 分页查询
 
 ![](./document/008-分页查询的原理.png)
 
@@ -691,7 +697,7 @@ select * from t_car limit 0,3
 - 基本分页功能
 - 分页信息对象
 
-# 注解开发
+## 注解开发
 
 - 如果用注解, mapper.xml文件可以不写了; 但是官方建议简单的单表crud使用注解,复杂sql语句还是要使用xml来映射sql
   - @Insert

@@ -11,20 +11,20 @@ categories: java笔记
 - markdown文档怎么写的好看
 - Gof23中设计模式/IoC控制反转思想
 
-# 一、Spring启示录
+## 一、Spring启示录
 
-## （一）环境配置
+### （一）环境配置
 
 - jdk最低要17 -> 多版本jdk切换和配置
   - 如果17没有jie需要管理员模式切到jdk目录下`bin\jlink.exe --module-path jmods --add-modules java.desktop --output jre`
 
-## （二）当前项目存在的问题
+### （二）当前项目存在的问题
 
 - 向前项目结构：层与层使用接口，servlet里有service对象，service对象里有dao对象。
 
 - 情景/问题：用户一年后有钱了，想要更换其他高性能Oracle数据库。那么dao实现类要重新写，之前程序中所有跟mysql数据库有关的对象要被替换。-> 重新单元测试全部模块项目等等
 
-## （三）软件开发七大原则
+### （三）软件开发七大原则
 
 - 开闭原则
 
@@ -53,7 +53,7 @@ categories: java笔记
      上 依赖 下，就是违背。
      只要"下”一改动，“上"就受到牵连。
 
-## （四）当前程序的设计,显然既违背OCP,又违背DIP,怎么办
+### （四）当前程序的设计,显然既违背OCP,又违背DIP,怎么办
 
 - 可以采用"控制反转"这种编程思想来解决这个问题
 
@@ -81,7 +81,7 @@ categories: java笔记
   }
   ```
 
-## （五）什么是控制反转
+### （五）什么是控制反转
 
 - 控制反转: IoC (Inversion of Control)
 - 反转是什么呢?
@@ -90,7 +90,7 @@ categories: java笔记
     - 第二件事: 我不在程序中采用硬编码的方式来维护对象的关系了。(对象之间关系的维护权，我也不管了，交出去了。)
 - 控制反转:是一种编程思想。或者叫做一种新型的设计模式。由于出现的比较新，没有被纳入G0F23种设计模式范围内。
 
-## （六）由此引出Spring框架
+### （六）由此引出Spring框架
 
 - Spring框架实现了控制反转IOC这种思想
   - Spring框架可以帮你new对象。
@@ -107,22 +107,22 @@ categories: java笔记
 - 依赖注入: 对象A和对象B之间的关系, 靠注入的手段来维护。而注入包括：set注入和构造注入
 - 
 
-# 二、Spring概述
+## 二、Spring概述
 
-## （一）八大模块
+### （一）八大模块
 
-## （二）Spring特点
+### （二）Spring特点
 
 - 非侵入式和侵入式：你开发的api/框架，需要依赖别人的api/框架才能单元测试，这样是侵入式的设计
 - 每一个被spring容器管理的对象，都叫bean
 
-# 三、Spring的入门程序
+## 三、Spring的入门程序
 
 下载spring
 
 重要的jar文件 看讲义里的表格
 
-## 3.1 第一个Spring程序的步骤
+### 3.1 第一个Spring程序的步骤
 
 1. 创建moudle
 
@@ -180,7 +180,7 @@ categories: java笔记
    }
    ```
 
-## 3.2 第一个程序的小细节
+### 3.2 第一个程序的小细节
 
 1. bean的id能不能重复？
    - 不能
@@ -228,7 +228,7 @@ categories: java笔记
       new ClassPathXmlApplicationContext("spring6.xml");
       ```
 
-## 3.3 开启Log4j2日志
+### 3.3 开启Log4j2日志
 
 从Spring5之后，Spring框架支持集成的日志框架是Log4j2.如何启用日志框架：
 
@@ -288,9 +288,9 @@ logger.debug("我是一条调试信息");
 logge
 ```
 
-# 四、spring对IoC的实现
+## 四、spring对IoC的实现
 
-## （一）控制反转
+### （一）控制反转
 
 控制反转是一种思想，依赖注入是实现控制反转的方式，其是为了降低程序的耦合度，提高拓展力（OCP原则和DIP原则）
 
@@ -299,7 +299,7 @@ spring这个框架是用来帮你完成以下两件事的
 - 创建对象
 - 维护对象和对象之间关系
 
-## （二） 依赖注入
+### （二） 依赖注入
 
 依赖是对象和对象之间的关系，注入就是通过赋值让对象产生关系
 
@@ -307,7 +307,7 @@ spring这个框架是用来帮你完成以下两件事的
 
 但是对象有属性啊，这怎么办？怎么通过spring给对象赋值？
 
-### 1. set注入
+#### 1. set注入
 
 可以使用set注入，来完成对对象的属性赋值
 
@@ -347,7 +347,7 @@ spring这个框架是用来帮你完成以下两件事的
 
 - property标签的ref是要注入的bean对象的id。
 
-### 2. 构造注入
+#### 2. 构造注入
 
 还可以使用构造（器）注入，来完成对对象的属性赋值
 
@@ -396,9 +396,9 @@ spring这个框架是用来帮你完成以下两件事的
 
 - ref属性（指定要注入的bean的id）
 
-## （三）set注入专题
+### （三）set注入专题
 
-### 1、注入外部bean和内部bean
+#### 1、注入外部bean和内部bean
 
 外部bean
 
@@ -428,7 +428,7 @@ spring这个框架是用来帮你完成以下两件事的
 
 - property不写ref="beanId"，是在体内使用bean标签（只写class属性）
 
-### 2、注入简单类型
+#### 2、注入简单类型
 
 简单类型有哪些？（BeanUtils -> isSimpleValueType( )）
 
@@ -458,7 +458,7 @@ Class.class == type);
 </bean>
 ```
 
-#### 简单类型注入的经典应用
+##### 简单类型注入的经典应用
 
 ```xml
 <bean id="myDataSourceBean" class="jdbc.MyDataSource">
@@ -474,7 +474,7 @@ Class.class == type);
 - 注入简单类型，property使用value属性
 - 注入非简单类型，property使用ref属性而不是value
 
-### 3、级联属性赋值
+#### 3、级联属性赋值
 
 例如：学生类和班级类，学生类的一个属性是班级类的对象
 
@@ -519,7 +519,7 @@ Class.class == type);
 - 被指向的类要有getXxx方法
 - 顺序不能颠倒，被指向的类要先ref（创建后）才能赋值
 
-### 4、注入数组
+#### 4、注入数组
 
 ```xml
 <bean id="yuQian" class="bean.QianDaYe">
@@ -549,7 +549,7 @@ Class.class == type);
 
 - 数组的类型-spring会自动判断类型
 
-### 5、注入List，Set
+#### 5、注入List，Set
 
 注入list的用法
 
@@ -582,7 +582,7 @@ Class.class == type);
 </property>
 ```
 
-### 6、注入Map，Properties
+#### 6、注入Map，Properties
 
 注入map
 
@@ -612,7 +612,7 @@ Class.class == type);
 </property>
 ```
 
-### 7、注入null和空字符串
+#### 7、注入null和空字符串
 
 注入null和空字符串
 
@@ -645,7 +645,7 @@ Class.class == type);
 - 注入空字符串, value不写内容,自动是空字符串
 - 手动注入空字符串`<value/>`
 
-### 8、注入特殊字符
+#### 8、注入特殊字符
 
 注入特殊字符
 
@@ -663,7 +663,7 @@ Class.class == type);
 </bean>
 ```
 
-### 9、基于命名空间p的注入
+#### 9、基于命名空间p的注入
 
 底层还是用set方法->简化set注入
 
@@ -685,7 +685,7 @@ Class.class == type);
 </beans>
 ```
 
-### 10、基于命名空间c的注入
+#### 10、基于命名空间c的注入
 
 底层调用构造器->简化构造器注入
 
@@ -708,7 +708,7 @@ Class.class == type);
 </beans>
 ```
 
-### 11、util命名空间
+#### 11、util命名空间
 
 是为了让配置复用
 
@@ -745,7 +745,7 @@ Class.class == type);
 </beans>
 ```
 
-### 12、基于xml的自动装配byName
+#### 12、基于xml的自动装配byName
 
 ```xml
 <!--根据名字进行自动装配-->
@@ -763,7 +763,7 @@ Class.class == type);
 
 OrderService有一个orderDao的属性，spring会自动找id为orderDao的bean，注入到orderDao属性中
 
-### 13、基于xml的自动装配byType
+#### 13、基于xml的自动装配byType
 
 ```xml
 <!--根据类型进行自动装配-->
@@ -776,7 +776,7 @@ OrderService有一个orderDao的属性，spring会自动找id为orderDao的bean�
 
 CustomerService有两个属性userDao和vipDao，待注入的属性类型是dao.UserDao和dao.VipDao，spring会在bean中找类型是以上的类型各一个，自动注入到对应类型的属性上
 
-### 14、引入外部的属性配置文件
+#### 14、引入外部的属性配置文件
 
 是为了让配置更好复用和修改
 
@@ -808,7 +808,7 @@ CustomerService有两个属性userDao和vipDao，待注入的属性类型是dao.
 </beans>
 ```
 
-# 五、bean作用域
+## 五、bean作用域
 
 加载spring容器的时候会调用配置的`所有bean`的无参构造方法
 
@@ -846,11 +846,11 @@ bean.SpringBean@528c868
 
 其他scope、自定义scope（ThreadScope一个线程一个bean好像）看讲义
 
-# 六、工厂模式
+## 六、工厂模式
 
 spring的Ioc实现<=工厂模式+xml解析+反射、
 
-## （一）设计模式和开发原则概述
+### （一）设计模式和开发原则概述
 
 设计模式是重复问题的模板解决方案
 
@@ -858,7 +858,7 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 
 设计模式会尽可能往软件开发原则靠
 
-## （二）简单工厂模式
+### （二）简单工厂模式
 
 ```
 设计模式之:简单工厂模式 Simple Factory Pattern
@@ -882,7 +882,7 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 工厂方法模式可以解决缺点一
 ```
 
-## （三）工厂方法模式
+### （三）工厂方法模式
 
 ```
 工厂方法模式: Factory Method Pattern
@@ -910,11 +910,11 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 5. 抽象工厂模式可以解决工厂方法模式的缺点
 ```
 
-## （四）抽象工厂模式
+### （四）抽象工厂模式
 
 
 
-# 七、bean的实例化方式
+## 七、bean的实例化方式
 
 创建方式
 
@@ -930,7 +930,7 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 
 - 第四种 
 
-# 八、bean的生命周期
+## 八、bean的生命周期
 
 面试多，开发应用多
 
@@ -940,7 +940,7 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 - [ ] 小细节
 - [ ] 自己new对象怎么给spring管理
 
-# 九、Bean的循环依赖
+## 九、Bean的循环依赖
 
 - [x] 两单例 + setter
 - [x] 两prototype + setter
@@ -954,15 +954,15 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 - [ ] 根源码
 
 
-# 十、复习反射机制调用方法
+## 十、复习反射机制调用方法
 
-# 十一、手写框架
+## 十一、手写框架
 
 手写框架实现的功能：依赖注入-set注入部分
 
 spring的Ioc实现<=工厂模式+xml解析+反射、
 
-# 十二、注解是开发
+## 十二、注解是开发
 
 自定义注解
 
@@ -978,7 +978,7 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 
 ![image-20231215151600802](./spring/image-20231215151600802.png)
 
-# 代理模式
+## 代理模式
 
 ![image-20231215205714901](./spring/image-20231215205714901.png)
 
@@ -986,6 +986,6 @@ spring的Ioc实现<=工厂模式+xml解析+反射、
 
 ![image-20231215215040327](./spring/image-20231215215040327.png)
 
-# 面向切面编程
+## 面向切面编程
 
 ![image-20231216222638105](./spring/image-20231216222638105.png)

@@ -1,10 +1,16 @@
-# SpringSecurity从入门到精通
+---
+title:  Spring-Security
+---
 
-## 课程介绍
+
+
+## SpringSecurity从入门到精通
+
+### 课程介绍
 
 ![image-20211219121555979](img/image-20211219121555979.png)
 
-## 0. 简介
+### 0. 简介
 
 ​	**Spring Security** 是 Spring 家族中的一个安全管理框架。相比与另外一个安全框架**Shiro**，它提供了更丰富的功能，社区资源也比Shiro丰富。
 
@@ -20,9 +26,9 @@
 
 
 
-## 1. 快速入门
+### 1. 快速入门
 
-### 1.1 准备工作
+#### 1.1 准备工作
 
 ​	我们先要搭建一个简单的SpringBoot工程
 
@@ -80,7 +86,7 @@ public class HelloController {
 
 
 
-### 1.2 引入SpringSecurity
+#### 1.2 引入SpringSecurity
 
 ​	在SpringBoot项目中使用SpringSecurity我们只需要引入依赖即可实现入门案例。
 
@@ -97,19 +103,19 @@ public class HelloController {
 
 
 
-## 2. 认证
+### 2. 认证
 
-### 2.1 登陆校验流程
+#### 2.1 登陆校验流程
 
 ![image-20211215094003288](img/image-20211215094003288.png)
 
-### 2.2 原理初探
+#### 2.2 原理初探
 
 ​	想要知道如何实现自己的登陆流程就必须要先知道入门案例中SpringSecurity的流程。
 
 
 
-#### 2.2.1 SpringSecurity完整流程
+##### 2.2.1 SpringSecurity完整流程
 
 ​	SpringSecurity的原理其实就是一个过滤器链，内部包含了提供各种功能的过滤器。这里我们可以看看入门案例中的过滤器。
 
@@ -133,7 +139,7 @@ public class HelloController {
 
 
 
-#### 2.2.2 认证流程详解
+##### 2.2.2 认证流程详解
 
 ![image-20211214151515385](img/image-20211214151515385.png)
 
@@ -151,9 +157,9 @@ UserDetails接口：提供核心用户信息。通过UserDetailsService根据用
 
 
 
-### 2.3 解决问题
+#### 2.3 解决问题
 
-#### 2.3.1 思路分析
+##### 2.3.1 思路分析
 
 登录
 
@@ -179,7 +185,7 @@ UserDetails接口：提供核心用户信息。通过UserDetailsService根据用
 
 ​				存入SecurityContextHolder
 
-#### 2.3.2 准备工作
+##### 2.3.2 准备工作
 
 ①添加依赖
 
@@ -835,13 +841,13 @@ public class User implements Serializable {
 
 
 
-#### 2.3.3 实现
+##### 2.3.3 实现
 
-##### 2.3.3.1 数据库校验用户
+###### 2.3.3.1 数据库校验用户
 
 ​	从之前的分析我们可以知道，我们可以自定义一个UserDetailsService,让SpringSecurity使用我们的UserDetailsService。我们自己的UserDetailsService可以从数据库中查询用户名和密码。
 
-###### 准备工作
+####### 准备工作
 
 ​	我们先创建一个用户表， 建表语句如下：
 
@@ -948,7 +954,7 @@ public class MapperTest {
 
 
 
-###### 核心代码实现
+####### 核心代码实现
 
 创建一个类实现UserDetailsService接口，重写其中的方法。更加用户名从数据库中查询用户信息
 
@@ -1039,7 +1045,7 @@ public class LoginUser implements UserDetails {
 
 
 
-##### 2.3.3.2 密码加密存储
+###### 2.3.3.2 密码加密存储
 
 ​	实际项目中我们不会把密码明文存储在数据库中。
 
@@ -1067,7 +1073,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ~~~~
 
-##### 2.3.3.3 登陆接口
+###### 2.3.3.3 登陆接口
 
 ​	接下我们需要自定义登陆接口，然后让SpringSecurity对这个接口放行,让用户访问这个接口的时候不用登录也能访问。
 
@@ -1161,7 +1167,7 @@ public class LoginServiceImpl implements LoginServcie {
 
 
 
-##### 2.3.3.4 认证过滤器
+###### 2.3.3.4 认证过滤器
 
 ​	我们需要自定义一个过滤器，这个过滤器会去获取请求头中的token，对token进行解析取出其中的userid。
 
@@ -1259,7 +1265,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-##### 2.3.3.5 退出登陆
+###### 2.3.3.5 退出登陆
 
 ​	我们只需要定义一个登陆接口，然后获取SecurityContextHolder中的认证信息，删除redis中对应的数据即可。
 
@@ -1310,9 +1316,9 @@ public class LoginServiceImpl implements LoginServcie {
 
 
 
-## 3. 授权
+### 3. 授权
 
-### 3.0 权限系统的作用
+#### 3.0 权限系统的作用
 
 ​	例如一个学校图书馆的管理系统，如果是普通学生登录就能看到借书还书相关的功能，不可能让他看到并且去使用添加书籍信息，删除书籍信息等功能。但是如果是一个图书馆管理员的账号登录了，应该就能看到并使用添加书籍信息，删除书籍信息等功能。
 
@@ -1324,7 +1330,7 @@ public class LoginServiceImpl implements LoginServcie {
 
 ​	
 
-### 3.1 授权基本流程
+#### 3.1 授权基本流程
 
 ​	在SpringSecurity中，会使用默认的FilterSecurityInterceptor来进行权限校验。在FilterSecurityInterceptor中会从SecurityContextHolder获取其中的Authentication，然后获取其中的权限信息。当前用户是否拥有访问当前资源所需的权限。
 
@@ -1332,9 +1338,9 @@ public class LoginServiceImpl implements LoginServcie {
 
 ​	然后设置我们的资源所需要的权限即可。
 
-### 3.2 授权实现
+#### 3.2 授权实现
 
-#### 3.2.1 限制访问资源所需权限
+##### 3.2.1 限制访问资源所需权限
 
 ​	SpringSecurity为我们提供了基于注解的权限控制方案，这也是我们项目中主要采用的方式。我们可以使用注解去指定访问对应的资源所需的权限。
 
@@ -1358,7 +1364,7 @@ public class HelloController {
 }
 ~~~~
 
-#### 3.2.2 封装权限信息
+##### 3.2.2 封装权限信息
 
 ​	我们前面在写UserDetailsServiceImpl的时候说过，在查询出用户后还要获取对应的权限信息，封装到UserDetails中返回。
 
@@ -1498,15 +1504,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
 
-#### 3.2.3 从数据库查询权限信息
+##### 3.2.3 从数据库查询权限信息
 
-##### 3.2.3.1 RBAC权限模型
+###### 3.2.3.1 RBAC权限模型
 
 ​	RBAC权限模型（Role-Based Access Control）即：基于角色的权限控制。这是目前最常被开发者使用也是相对易用、通用权限模型。
 
 ​	![image-20211222110249727](img/image-20211222110249727.png)
 
-##### 3.2.3.2 准备工作
+###### 3.2.3.2 准备工作
 
 ~~~~sql
 
@@ -1697,7 +1703,7 @@ public class Menu implements Serializable {
 
 
 
-##### 3.2.3.3 代码实现
+###### 3.2.3.3 代码实现
 
 ​	我们只需要根据用户id去查询到其所对应的权限信息即可。
 
@@ -1795,7 +1801,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
 
-## 4. 自定义失败处理
+### 4. 自定义失败处理
 
 ​	我们还希望在认证失败或者是授权失败的情况下也能和我们的接口一样返回相同结构的json，这样可以让前端能对响应进行统一的处理。要实现这个功能我们需要知道SpringSecurity的异常处理机制。
 
@@ -1868,7 +1874,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 
 
 
-## 5. 跨域
+### 5. 跨域
 
 ​	浏览器出于安全的考虑，使用 XMLHttpRequest对象发起 HTTP请求时必须遵守同源策略，否则就是跨域的HTTP请求，默认情况下是被禁止的。 同源策略要求源相同才能正常进行通信，即协议、域名、端口号都完全一致。 
 
@@ -1938,9 +1944,9 @@ public class CorsConfig implements WebMvcConfigurer {
 
 
 
-## 6. 遗留小问题
+### 6. 遗留小问题
 
-### 其它权限校验方法
+#### 其它权限校验方法
 
 ​	我们前面都是使用@PreAuthorize注解，然后在在其中使用的是hasAuthority方法进行校验。SpringSecurity还为我们提供了其它方法例如：hasAnyAuthority，hasRole，hasAnyRole等。
 
@@ -1989,7 +1995,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
 
 
-### 自定义权限校验方法
+#### 自定义权限校验方法
 
 ​	我们也可以定义自己的权限校验方法，在@PreAuthorize注解中使用我们的方法。
 
@@ -2020,7 +2026,7 @@ public class SGExpressionRoot {
 
 
 
-### 基于配置的权限控制
+#### 基于配置的权限控制
 
 ​	我们也可以在配置类中使用使用配置的方式对资源进行权限控制。
 
@@ -2060,7 +2066,7 @@ public class SGExpressionRoot {
 
 
 
-### CSRF
+#### CSRF
 
 ​	CSRF是指跨站请求伪造（Cross-site request forgery），是web常见的攻击之一。
 
@@ -2074,7 +2080,7 @@ public class SGExpressionRoot {
 
 
 
-### 认证成功处理器
+#### 认证成功处理器
 
 ​	实际上在UsernamePasswordAuthenticationFilter进行登录认证的时候，如果登录成功了是会调用AuthenticationSuccessHandler的方法进行认证成功后的处理的。AuthenticationSuccessHandler就是登录成功处理器。
 
@@ -2111,7 +2117,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-### 认证失败处理器
+#### 认证失败处理器
 
 ​	实际上在UsernamePasswordAuthenticationFilter进行登录认证的时候，如果认证失败了是会调用AuthenticationFailureHandler的方法进行认证失败后的处理的。AuthenticationFailureHandler就是登录失败处理器。
 
@@ -2155,7 +2161,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-### 登出成功处理器
+#### 登出成功处理器
 
 ~~~~java
 @Component
@@ -2202,12 +2208,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-### 其他认证方案畅想
+#### 其他认证方案畅想
 
 
 
 
 
-## 7. 源码讲解
+### 7. 源码讲解
 
 ​	投票过50更新源码讲解

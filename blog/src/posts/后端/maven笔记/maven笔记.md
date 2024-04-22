@@ -1,3 +1,9 @@
+---
+title: Maven
+---
+
+
+
 ## 第一部分
 
 ### 完成一个java项目，需要做哪些工作
@@ -130,7 +136,7 @@
 - 修改maven的配置文件， maven安装目录/conf/settings.xml
   先备份 settings.xml
 
-- 修改 <localRepository>  指定你的目录（不要使用中文目录）
+- `修改 <localRepository>  指定你的目录（不要使用中文目录）`
 
   `D:\Myapps\maven\maven_repository`
 
@@ -158,11 +164,11 @@
 
 - 1）坐标：唯一值， 在互联网中唯一标识一个项目的
 
-​	<groupId>公司域名的倒写</groupId>
+​	`<groupId>公司域名的倒写</groupId>`
 
-​	<artifactId>自定义项目名称</artifactId>
+​	`<artifactId>自定义项目名称</artifactId>`
 
-​	<version>自定版本号</version>
+​	`<version>自定版本号</version>`
 
 - https://mvnrepository.com/ 搜索使用的中央仓库， 使用groupId 或者 artifactId作为搜索条件
 
@@ -352,9 +358,9 @@
 
 - maven常用操作
   - 1.maven的属性设置
-    - <properties> 设置maven的常用属性
+    - `<properties> `设置maven的常用属性
   - 2.maven的全局变量
-    - 自定义的属性，1.在<properties> 通过`自定义标签`声明变量（标签名就是变量名）
+    - 自定义的属性，1.在`<properties>` 通过`自定义标签`声明变量（标签名就是变量名）
       	                 2.在pom.xml文件中的其它位置，使用` ${标签名} `使用变量的值
     - 自定义全局变量一般是定义 依赖的版本号， 当你的项目中要使用多个相同的版本号，
       先使用全局变量定义， 在使用${变量名}
