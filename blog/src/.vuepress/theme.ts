@@ -13,7 +13,8 @@ export default hopeTheme({
 
   iconAssets: "fontawesome-with-brands",
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/images/avatar.png",
+  favicon: "/images/avatar.png",
 
   repo: "https://github.com/n0thing289/NoteRepository",
 
@@ -26,7 +27,10 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer:
+    "<img src='/images/备案图标.png' width='10px'>" +
+    " <a href='https://beian.mps.gov.cn/#/query/webSearch?code=44130202001227' rel='noreferrer' target='_blank'>粤公网安备44130202001227</a>" +
+    " <a href='https://beian.miit.gov.cn/' target='_blank'>粤ICP备2024168600号-1</a>",
   displayFooter: true,
 
   // 博客相关
@@ -40,6 +44,9 @@ export default hopeTheme({
       GitHub: "https://github.com/n0thing289",
       MrHope: ["https://mister-hope.com", MR_HOPE_AVATAR],
     },
+    //我添加的博客相关的配置
+    avatar: "/images/avatar.png",
+    name: "n0thing"
   },
 
   // 加密配置
@@ -59,8 +66,9 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
-    
+
     blog: true,
+
 
     // 启用之前需安装 @waline/client
     // 警告: 这是一个仅供演示的测试服务，在生产环境中请自行部署并使用自己的服务！
@@ -199,8 +207,8 @@ export default hopeTheme({
     //     ],
     //   },
     // },
-    
-    
+
+    searchPro: true,
   },
   //我添加的配置
   pure: true,

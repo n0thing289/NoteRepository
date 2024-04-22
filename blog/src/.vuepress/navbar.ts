@@ -6,7 +6,7 @@ export default navbar([
   // "/posts/",
   {
     text: "代码笔记",
-    icon: "pen-to-square",
+    icon: "code",
     link: "/posts/",
   },
   {

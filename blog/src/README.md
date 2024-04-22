@@ -3,10 +3,12 @@ home: true
 layout: BlogHome
 icon: home
 title: 博客主页
-heroImage: https://theme-hope-assets.vuejs.press/logo.svg
+heroImage: /images/avatar.png
 heroText: Wei-Kai
-heroFullScreen: true
 tagline: Stay Hungry Stay Foolish
+heroFullScreen: true
+# bgImage: https://api.paugram.com/wallpaper/
+bgImage: https://cn.bing.com/th?id=OHR.YellowstoneGeyser_ZH-CN3441008468_1920x1080.webp
 projects:
   - icon: project
     name: 项目名称
@@ -39,4 +41,5 @@ projects:
     link: https://你的自定义链接
 
 footer: 自定义你的页脚文字
+
 ---

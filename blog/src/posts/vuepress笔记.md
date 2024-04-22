@@ -22,6 +22,8 @@ yarn指定端口启动 yarn docs:dev --port=8081
 
 脚注
 
+
+
 ## 默认行为
 
 默认会跳过一些文件 pagePartern
@@ -40,3 +42,7 @@ yarn指定端口启动 yarn docs:dev --port=8081
 
 
 ## 使用vuepress-hope
+
+自动生成
+
+目录页面
