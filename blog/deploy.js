@@ -1,13 +1,13 @@
 import ssh2SftpClient from 'ssh2-sftp-client'
 let Client = ssh2SftpClient 
-import delpoyConfig from "./delpoyConfig"
+import deployConfig from "./deployConfig"
 
 let client = new Client();
 const config = {
-    host: delpoyConfig.host,
-    port: delpoyConfig.port,
-    username: delpoyConfig.username,
-    password: delpoyConfig.password
+    host: deployConfig.host,
+    port: deployConfig.port,
+    username: deployConfig.username,
+    password: deployConfig.password
 }
 const localPath = './src/.vuepress/dist' //path.resolve(__dirname, './src/.vuepress/dist')
 const remotePath = '/www/server/nginx/html/vuepressdist'
