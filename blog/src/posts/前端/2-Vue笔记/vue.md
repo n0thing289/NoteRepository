@@ -1,7 +1,8 @@
 ---
 title: Vue笔记
 date: 2024-01-20 20:52:34
-tags:
+tags: vue
+categories: 前端
 ---
 
 # vue黑马程序员书

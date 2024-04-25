@@ -39,7 +39,7 @@ export default hopeTheme({
     intro: "/intro.html",
     medias: {
       Baidu: "https://baidu.com",
-      BiliBili: "https://bilibili.com",
+      BiliBili: "https://space.bilibili.com/144612442",
       Email: "2892734127@qq.com",
       GitHub: "https://github.com/n0thing289",
       MrHope: ["https://mister-hope.com", MR_HOPE_AVATAR],
@@ -67,7 +67,9 @@ export default hopeTheme({
   // 在这里配置主题提供的插件
   plugins: {
 
-    blog: true,
+    blog: {
+      excerptLength: 0,
+    },
 
 
     // 启用之前需安装 @waline/client
@@ -208,9 +210,14 @@ export default hopeTheme({
     //   },
     // },
 
-    searchPro: true,
+    searchPro: {
+      indexContent: false,
+      autoSuggestions: true,
+      searchDelay: 150,
+    },
+    copyright: true,
   },
   //我添加的配置
-  pure: true,
+  // pure: true,
   headerDepth: 7,
 });

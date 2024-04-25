@@ -46,3 +46,6 @@ yarn指定端口启动 yarn docs:dev --port=8081
 自动生成
 
 目录页面
+
+快速部署
+https://blog.csdn.net/Hsk_03/article/details/125496258

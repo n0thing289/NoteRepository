@@ -1,5 +1,8 @@
 ---
 title: Mybatis
+tags: ORM
+categories: 数据库
+date: 2023-10-08
 ---
 
 

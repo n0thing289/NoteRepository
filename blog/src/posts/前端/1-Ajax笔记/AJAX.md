@@ -1,3 +1,12 @@
+---
+title: Ajax
+tag: ajax
+categories: 前端
+date: 2023-10-18
+---
+
+
+
 # AJAX（Asynchronous Javascript And Xml）
 
 ## 传统请求及缺点

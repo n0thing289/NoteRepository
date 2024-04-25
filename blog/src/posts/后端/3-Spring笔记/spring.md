@@ -1,6 +1,8 @@
 ---
 title: Spring
-categories: java笔记
+tags: ioc依赖注入
+categories: java后端
+date: 2023-12-01
 ---
 
 

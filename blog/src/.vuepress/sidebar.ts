@@ -23,18 +23,18 @@ export default sidebar({
       ],
     },
     "intro",
-    {
-      text: "幻灯片",
-      icon: "person-chalkboard",
-      link: "https://plugin-md-enhance.vuejs.press/zh/guide/content/revealjs/demo.html",
-    },
-    {
-      text: "VuePress2官方文档",
-      prefix: "vuepress2docs/",
-      link: "vuepress2docs/",
-      children: [
-        { text: "指南", prefix: "guide/", children: "structure", collapsible: true },
-      ],
-    },
+    // {
+    //   text: "幻灯片",
+    //   icon: "person-chalkboard",
+    //   link: "https://plugin-md-enhance.vuejs.press/zh/guide/content/revealjs/demo.html",
+    // },
+    // {
+    //   text: "VuePress2官方文档",
+    //   prefix: "vuepress2docs/",
+    //   link: "vuepress2docs/",
+    //   children: [
+    //     { text: "指南", prefix: "guide/", children: "structure", collapsible: true },
+    //   ],
+    // },
   ],
 });
