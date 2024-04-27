@@ -13,28 +13,27 @@ export default sidebar({
     {
       text: "代码笔记",
       icon: "code",
-      prefix: "posts/",
-      link: "posts/",
+      prefix: "codeNotes/",
+      link: "codeNotes/",
       children: [
         { text: "前端", prefix: "前端/", children: "structure", collapsible: true },
         { text: "后端", prefix: "后端/", children: "structure", collapsible: true },
+        {
+          text: "项目笔记", prefix: "项目/", children: [
+            { text: "苍穹外卖", prefix: "苍穹外卖/", children: "structure", collapsible: true },
+            { text: "动力云客", prefix: "动力云客/", children: "structure", collapsible: true },
+          ], collapsible: true
+        },
         { text: "VuePress迁移笔记", link: "vuepress笔记.md" },
-        
       ],
     },
+    {
+      text: "读书笔记",
+      icon: "book",
+      prefix: "readingNotes/",
+      link: "readingNotes/",
+      children: "structure",
+    },
     "intro",
-    // {
-    //   text: "幻灯片",
-    //   icon: "person-chalkboard",
-    //   link: "https://plugin-md-enhance.vuejs.press/zh/guide/content/revealjs/demo.html",
-    // },
-    // {
-    //   text: "VuePress2官方文档",
-    //   prefix: "vuepress2docs/",
-    //   link: "vuepress2docs/",
-    //   children: [
-    //     { text: "指南", prefix: "guide/", children: "structure", collapsible: true },
-    //   ],
-    // },
   ],
 });

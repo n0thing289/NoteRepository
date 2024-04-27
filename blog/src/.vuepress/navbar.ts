@@ -11,7 +11,7 @@ export default navbar([
   {
     text: "代码笔记",
     icon: "code",
-    link: "/posts/",
+    link: "/codeNotes/",
   },
   {
     text: "VuePress文档",
