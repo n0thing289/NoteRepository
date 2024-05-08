@@ -5,9 +5,9 @@ tags: vue
 categories: 前端
 ---
 
-# vue黑马程序员书
+## vue黑马程序员书
 
-## vue环境搭建
+### vue环境搭建
 
 1. node.js
 
@@ -31,7 +31,7 @@ categories: 前端
 
 6. yarn add @element-plus/icons-vue
 
-## 配置基本的vue
+### 配置基本的vue
 
 ```
 //导入创vue实例的函数
@@ -44,7 +44,7 @@ app.mount('#app')
 
 
 
-## 配置Element-plus
+### 配置Element-plus
 
 ```js
 //导入element-plus
@@ -55,18 +55,18 @@ app.use(ElementPlus)
 
 
 
-## vue环境搭建-搭建的坑
+### vue环境搭建-搭建的坑
 
 - [yarn安装与使用&yarn : 无法加载文件...因为在此系统上禁止运行脚本_yarn命令加载资源-CSDN博客](https://blog.csdn.net/Imagirl1/article/details/122014743)
 - [大多数前端同学在使用 ES6 的 import 语法时都会犯的一个错误 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/376466867)
 
-## vscode插件
+### vscode插件
 
 
 
-## 第一章
+### 第一章
 
-### 声明式渲染
+#### 声明式渲染
 
 reactive和ref定义，在模板中使用
 
@@ -74,19 +74,19 @@ reactive和ref定义，在模板中使用
 
 
 
-## 第二章阶段案例- 学习计划表
+### 第二章阶段案例- 学习计划表
 
 [VUE里面的export default 是什么-CSDN博客](https://blog.csdn.net/weixin_46129834/article/details/106425246)
 
 
 
-## 第五章 路由
+### 第五章 路由
 
 
 
-# Vue老杜
+## Vue老杜
 
-## 01 初体验vue
+### 01 初体验vue
 
 >vue的起步
 >
@@ -172,19 +172,19 @@ ts声明
 
 
 
-## 02 vue核心知识
+### 02 vue核心知识
 
 >表达式(常量, js表达式, vue实例所管理的XX)!!!
 >
 >指令的"",里面是要写表达式或响应式数据; 里面如果是''表示传一个string类型的常量值
 
-### 语法和指令
+#### 语法和指令
 
-#### 插值语法
+##### 插值语法
 
 - `{{}} `只能写在标签体内
 
-#### 渲染指令
+##### 渲染指令
 
 - v-once 
 
@@ -258,7 +258,7 @@ ts声明
 
     - `<li v-for="(item,index) in items"></li>`
 
-#### 事件绑定指令
+##### 事件绑定指令
 
 - v-on:事件名="表达式" 
 
@@ -292,7 +292,7 @@ ts声明
     - 自定义按键修饰符
       - Vue.config.keyCodes.huiche = 13
 
-#### $event
+##### $event
 
 event重要属性
 
@@ -303,7 +303,7 @@ srcElement很重要! event.target不能从父类节点里拿到子元素列表
 
 $set()
 
-#### 其他指令
+##### 其他指令
 
 - v-text="表达式"和v-html
 
@@ -318,7 +318,7 @@ $set()
 
 - v-pre 用在没有vue语法的标签, 不对其进行编译
 
-#### directives自定义指令
+##### directives自定义指令
 
 ```js
 //局部指令
@@ -366,7 +366,7 @@ Vue.directive('bind-blue',{
 
 
 
-### data详解vue框架底层使用了数据代理机制
+#### data详解vue框架底层使用了数据代理机制
 
 所有以 $ 都是公开的属性,供程序员使用, 所有以_开头的属性都是私有属性, 给框架使用的
 
@@ -444,7 +444,7 @@ Object.defineProperty(proxy, "name", {
 
 `做了数据代理,可以打通各个配置项的数据, 只需要访问vm(this)就可以获取数据或者方法`
 
-### methods详解
+#### methods详解
 
 methods对象中的方法可以通过vm去访问吗? --可以
 
@@ -464,7 +464,7 @@ methods对象中的方法中的this指向谁？
 
 - vue实例自己，因为是由vm调用方法，this就是vm
 
-### computed计算属性
+#### computed计算属性
 
 >**计算属性**
 >
@@ -499,7 +499,7 @@ methods对象中的方法中的this指向谁？
 
 
 
-### watch侦听器
+#### watch侦听器
 
 - 监听属性(多个,vue所管理的属性包括计算属性)的变化
 
@@ -542,7 +542,7 @@ methods对象中的方法中的this指向谁？
     msg(newValue,oldValue){}
     ```
 
-#### 比较大小案例的结论-computed和watch的选择
+##### 比较大小案例的结论-computed和watch的选择
 
 - 计算属性和侦听器如果都能完成某个功能,优先computed
 - 有一种情况只能用watch, 不能用computed
@@ -556,7 +556,7 @@ methods对象中的方法中的this指向谁？
 
 
 
-### 表达式还可以是数组或者对象 :class/:style="表达式"
+#### 表达式还可以是数组或者对象 :class/:style="表达式"
 
 - :class
 
@@ -581,7 +581,7 @@ methods对象中的方法中的this指向谁？
 - :style
   - 详见27-xxxx.html
 
-### filters过滤器
+#### filters过滤器
 
 >适用与简单的逻辑处理, 对数据进行格式化显示
 >
@@ -597,7 +597,7 @@ methods对象中的方法中的this指向谁？
 >
 >vue3已废除
 
-### 生命周期
+#### 生命周期
 
 研究vue实例从创建到销毁， 各个时间节点vue做了什么事，vue调了那些钩子函数
 
@@ -661,7 +661,7 @@ methods对象中的方法中的this指向谁？
 
 - ![image-20240312090848571](vue/image-20240312090848571.png)
 
-## 03 组件化开发
+### 03 组件化开发
 
 实现组件需要三步:
 
@@ -749,7 +749,7 @@ methods对象中的方法中的this指向谁？
 
 
 
-### 组件嵌套
+#### 组件嵌套
 
 组件哪里注册，就在哪里使用
 
@@ -817,7 +817,7 @@ console.log(a.counter)
 
 
 
-## 04单文件组件(创建 注册 使用)
+### 04单文件组件(创建 注册 使用)
 
 现在变成一个有一个的独立文件，其他组件想要访问，那么这个组件必须先导出/暴露出去
 
@@ -836,11 +836,11 @@ import
 需要脚手架帮我们把单文件组件编译成html css js代码
 ```
 
-### 脚手架结构和为什么使用render函数
+#### 脚手架结构和为什么使用render函数
 
 
 
-### props父组件给子组件传数据
+#### props父组件给子组件传数据
 
 一方传：父组件使用子组件时，以属性键值对的方式传入数据
 
@@ -877,7 +877,7 @@ props:{
 //		不允许修改指的是值或者内存空间的指向没有变，如果你修改的对象的属性，那么是不会报错的
 ```
 
-### $refs从父组件中获得子组件
+#### $refs从父组件中获得子组件
 
 第一步打标记, 父组件使用子组件, 以属性的方式写上ref="随便"
 
@@ -889,7 +889,7 @@ ref打在html元素上, 获取html元素
 
 第二步获取, this.$refs.随便
 
-### mixins混入
+#### mixins混入
 
 - 步骤
 
@@ -911,7 +911,7 @@ ref打在html元素上, 获取html元素
 
 
 
-### 插件
+#### 插件
 
 写一个js文件
 
@@ -921,7 +921,7 @@ ref打在html元素上, 获取html元素
 
 
 
-### scope局部样式
+#### scope局部样式
 
 ```html
 vue会把各组件的样式合并, 如果出现同名的样式, 则会出现有些样式不起作用,互相干扰的效果(与优先级有关)
@@ -931,7 +931,7 @@ vue会把各组件的样式合并, 如果出现同名的样式, 则会出现有�
 
 
 
-### 自定义事件
+#### 自定义事件
 
 - 内置事件的实现步骤
 
@@ -987,7 +987,7 @@ vue会把各组件的样式合并, 如果出现同名的样式, 则会出现有�
 
 
 
-### $bus全局事件总线--解决所有组件之间通信问题!
+#### $bus全局事件总线--解决所有组件之间通信问题!
 
 - 就是自定义事件的升级版！
 
@@ -1036,7 +1036,7 @@ vue会把各组件的样式合并, 如果出现同名的样式, 则会出现有�
 
   
 
-### 目前组件通信
+#### 目前组件通信
 
 父组件-子组件
 
@@ -1057,7 +1057,7 @@ vue会把各组件的样式合并, 如果出现同名的样式, 则会出现有�
 - 子传父： 自定义事件
 - 其他：全局事件总线
 
-### pubsub-js消息订阅与发布--与全局事件总线等效
+#### pubsub-js消息订阅与发布--与全局事件总线等效
 
 ![image-20240322170414736](vue/image-20240322170414736.png)
 
@@ -1094,7 +1094,7 @@ vue会把各组件的样式合并, 如果出现同名的样式, 则会出现有�
 
 
 
-## 05ajax与跨域
+### 05ajax与跨域
 
 使用axios, 来发送ajax请求
 
@@ -1104,7 +1104,7 @@ vue会把各组件的样式合并, 如果出现同名的样式, 则会出现有�
 - axios的基地址
 - axios的请求拦截器和响应拦截器
 
-### 使用vue的代理服务器, 来解决跨域(工作不常用)
+#### 使用vue的代理服务器, 来解决跨域(工作不常用)
 
 在vue.config.js中
 
@@ -1116,13 +1116,13 @@ devServer:{
 }
 ```
 
-## 06Vuex
+### 06Vuex
 
 全局事件总线只是将数据传来传去，并没有做到真正的共享
 
 vuex做到了真正的响应式数据共享
 
-### 基础vuex使用
+#### 基础vuex使用
 
 - 搭建vuex环境 ( vue2 => vuex3 )
 
@@ -1241,7 +1241,7 @@ vuex做到了真正的响应式数据共享
 
 
 
-### vuex优化
+#### vuex优化
 
 优化第一境界: computed里return this.$store.state.xxx
 
@@ -1319,7 +1319,7 @@ vuex做到了真正的响应式数据共享
   ```
 
 
-### Vuex模块化开发（重要）
+#### Vuex模块化开发（重要）
 
 >如果把每个组件的actions, mutations, state, getters都放到store.js中;
 >
@@ -1440,7 +1440,7 @@ vuex做到了真正的响应式数据共享
 
 
 
-## 07路由 route
+### 07路由 route
 
 路由和路由器
 
@@ -1455,7 +1455,7 @@ vuex做到了真正的响应式数据共享
    1. 不停的监视路径的变化
    2. 只要路径变化, 路由器就会找到对应路由, 完成路由的切换
 
-### 基本使用
+#### 基本使用
 
 - 搭建vue-router环境( vue2 => vue-router3 )
 
@@ -1656,14 +1656,14 @@ vuex做到了真正的响应式数据共享
   </keep-alive>
   ```
 
-### 路由组件的钩子函数
+#### 路由组件的钩子函数
 
 普通组件9个钩子( **8个+this.$nextTick(function(){})** ), 路由组件还多了两个钩子函数
 
 - 路由组件被切换到的时候, activated(){} 钩子函数自动调用
 - 路由组件被切走的时候, deactivated(){} 钩子函数自动调用
 
-### 路由守卫
+#### 路由守卫
 
 不同的守卫本质上就是在不同位置不同时机去写守卫代码
 
@@ -1735,7 +1735,7 @@ vuex做到了真正的响应式数据共享
   全局前置=>全局后置=>局部path=>局部component前=>局部component后
   ```
 
-## 08前端项目上线
+### 08前端项目上线
 
 上线前工作
 
@@ -1752,7 +1752,7 @@ vuex做到了真正的响应式数据共享
 
 
 
-## 09 Vue3语法
+### 09 Vue3语法
 
 >RefImpl的value是具有响应式的, proxy对象是具有响应式的
 >
@@ -1765,7 +1765,7 @@ vuex做到了真正的响应式数据共享
 >
 >![image-20240408144418649](./vue/image-20240408144418649.png)
 
-### setup()
+#### setup()
 
 ```js
 setup(){
@@ -1776,7 +1776,7 @@ setup(){
 }
 ```
 
-### ref
+#### ref
 
 ```
 ref('被包裹的数据')
@@ -1788,7 +1788,7 @@ value属性有对应的get和set
 包裹对象是递归处理的, 不管嵌套多少,都具有响应式
 ```
 
-### reactive
+#### reactive
 
 ```
 reactive({})用这个函数包裹起来的对象,直接就是一个proxy(不需要.value拆包了) 不管嵌套多少,都具有响应式, 后续添加的属性都具有响应式
@@ -1796,14 +1796,14 @@ ref包裹对象使用Object.defineProperty + proxy(底层自动调用reactive函
 包裹对象用reactive(),包裹基本数据类型用ref()
 ```
 
-### props
+#### props
 
 ```
 prop 传数据, 收数据还是一样
 但是如何setup()函数中使用呢? 其实setup()函数第一个参数就是props, 这个props被包装成立proxy对象,且不需要在setup()中返回它
 ```
 
-### 生命周期
+#### 生命周期
 
 ```
 //1. 在beforeCreate前setup先执行
@@ -1811,14 +1811,14 @@ prop 传数据, 收数据还是一样
 //3. 组合式api的钩子函数,需要导入, 如何在setup调用, 传入一个回调函数
 ```
 
-### 自定义事件
+#### 自定义事件
 
 ```
 //1. 父组件绑定一个事件
 //2. 子组件通过setup的第二个参数(上下文context)  context.emit('eventName', value)
 ```
 
-### 全局事件总线
+#### 全局事件总线
 
 >- 移除了全局事件总线, 使用第三方的mitt库代替
 >
@@ -1854,14 +1854,14 @@ prop 传数据, 收数据还是一样
 >  ```
 >
 
-### computed计算属性
+#### computed计算属性
 
 ```
 简写形式: computed(()=>{return "就是响应式的了"})返回的就是计算属性return的东西
 完整形式: computed({ get(){return ''}, set(val){} })
 ```
 
-### watch监听属性 
+#### watch监听属性 
 
 ​	侦听ref
 
@@ -1903,7 +1903,7 @@ watch第一个参数是refImpl对象,
 	可以获取oldValue
 ```
 
-### watchEffect
+#### watchEffect
 
 ```
 watchEffect(()=>{ })
@@ -1912,7 +1912,7 @@ watchEffect(()=>{ })
 	只要这里面用到的响应式数据一变, 回调函数就会调用一次
 ```
 
-### 自定义钩子-hook函数
+#### 自定义钩子-hook函数
 
 ```
 和vue2的混入差不多, 目的都是为了复用
@@ -1920,15 +1920,15 @@ watchEffect(()=>{ })
 写一个functionsum(){return {}} 函数, 内容是setup函数内的东西, 后续将他导入即可使用
 ```
 
-### 选项式API和组合式API的区别
+#### 选项式API和组合式API的区别
 
 选项式API 关注一个又一个的配置(关注配置), 维护麻烦
 
 组合式API + hooks 可以封装独立的一个又一个功能(关注功能), 更好维护
 
-### 浅层次响应式
+#### 浅层次响应式
 
-### 深只读和浅只读
+#### 深只读和浅只读
 
 ```
 let data = reactive({})
@@ -1936,7 +1936,7 @@ data = readonly(data)
 data = shallowReadonly(data)
 ```
 
-### 响应式数据判断
+#### 响应式数据判断
 
 ```
 isRef()
@@ -1945,7 +1945,7 @@ isProxy()
 isReadonly()
 ```
 
-### toRef和toRefs --简化前缀
+#### toRef和toRefs --简化前缀
 
 ```
 //1. 
@@ -1960,7 +1960,7 @@ toRefs(data)生成一个对象, 属性名就是键名
 使用setup语法糖简化后这样写 const {要简化的键名} = toRefs(data) es6解构赋值
 ```
 
-### 转换为原始 和 标记为原始
+#### 转换为原始 和 标记为原始
 
 ```
 let obj = reactive({counter})
@@ -1969,14 +1969,14 @@ obj = toRaw(obj) //关联的对象是同一个 修改对象内部数据都会变
 obj = markRaw(obj) //标记某个对象使其永远都不具有响应式
 ```
 
-### Fragment组件
+#### Fragment组件
 
 ```
 在vue2时代, template标签内必须要手动先写一个div根标签包裹再写模板
 vue3时代, template标签内可以写多个根标签了, vue3会自动用fragment标签包裹
 ```
 
-### teleport 组件传送
+#### teleport 组件传送
 
 ```html
 <teleport to='body'>
@@ -1984,7 +1984,7 @@ vue3时代, template标签内可以写多个根标签了, vue3会自动用fragme
 </teleport>
 ```
 
-### provide inject 隔代数据传递
+#### provide inject 隔代数据传递
 
 ```
 provide和inject用于祖宗组件给其所有后代组件数据传递
@@ -1992,7 +1992,7 @@ provide和inject用于祖宗组件给其所有后代组件数据传递
 后代接受数据 inject('key')
 ```
 
-### 自定义ref
+#### 自定义ref
 
 >实现watch方式 -> 延迟显示
 
@@ -2037,7 +2037,7 @@ function useDebouncedRef(value){
 let name = useDebouncedRef('test')
 ```
 
-### setup语法糖
+#### setup语法糖
 
 ```
 之前没用setup语法糖, 每一个用到的变量(watch,computed...)和方法都需要return ,麻烦
@@ -2048,7 +2048,7 @@ let name = useDebouncedRef('test')
 
 
 
-## vue执行流程和逻辑
+### vue执行流程和逻辑
 
 1. 首先vue会根据配置项创建vue实例, 每一个实例和其挂载的容器一一对应; vue会开始管理data和methods
 
@@ -2074,7 +2074,7 @@ let name = useDebouncedRef('test')
 
 
 
-## vue原理
+### vue原理
 
 - 数据代理机制 -> 实现vm直接访问data, 配置项内this指向vm
 
@@ -2126,7 +2126,7 @@ let name = useDebouncedRef('test')
 
 
 
-## 老杜涉及案例
+### 老杜涉及案例
 
 - p20-手写vue数据代理机制
 
@@ -2177,7 +2177,7 @@ let name = useDebouncedRef('test')
 
 - p114vuex多组件共享数据
 
-## 吴悠todo案例
+### 吴悠todo案例
 
 
 
@@ -2202,7 +2202,7 @@ let name = useDebouncedRef('test')
 >
 >window.location.hash
 
-# 全局配置
+## 全局配置
 
 - 全局指令
 
@@ -2220,7 +2220,7 @@ let name = useDebouncedRef('test')
 - this.$nextTick(callback) 在下一次dom全部渲染完毕后被调用
 
 
-# 打包vue
+## 打包vue
 
 [Vue CLI 设置 publicPath：打包后的应用可部署在任意路径_vue 生产环境 output publicpath-CSDN博客](https://blog.csdn.net/sinat_31213021/article/details/135127094)
 
@@ -2239,7 +2239,7 @@ export default defineConfig({
 
 
 
-# js语法回顾
+## js语法回顾
 
 - 数组过滤 filter语法
 
@@ -2358,7 +2358,7 @@ debugger断点
 
 
 
-# axios
+## axios
 
 配置基地址
 
@@ -2374,6 +2374,6 @@ Element-plus
 
 
 
-# 坑
+## 坑
 
 当你要绑定的数据，有很多要嵌套，记住`只需要写出上一级,下一级可以省略`

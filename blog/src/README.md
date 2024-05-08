@@ -10,7 +10,12 @@ heroFullScreen: true
 # bgImage: https://api.paugram.com/wallpaper/
 bgImage: https://cn.bing.com/th?id=OHR.YellowstoneGeyser_ZH-CN3441008468_1920x1080.webp
 projects:
-  
+
+  - icon: project
+    name: 苍穹外卖
+    desc: 商家管理端
+    link: https://weikai.asia/sky
+
   - icon: project
     name: 动力云客
     desc: 前后端分离拿来练手的项目
@@ -26,12 +31,10 @@ projects:
     desc: 想知道今天天气如何吗?
     link: https://weikai.asia/components/weather
 
-  - icon: link
-    name: ssl证书过期重新安装
-    desc: 一旦ssl证书审核完了记得去安装!!!
-    link: https://yundun.console.aliyun.com/?spm=5176.12818093_47.console-base.dcas.48f916d01bz9vM&p=cas#/certExtend/free/cn-hangzhou
-
-
+  - icon: todo
+    name: 动力云客项目优化
+    desc: 有几个模块比较简陋, 需要重新写!
+    link: https://upload-bbs.miyoushe.com/upload/2024/04/23/283836260/dd93f20c2e5af823503ad2db47736359_1076313367922237193.jpg
 
 #  - icon: book
 #    name: 书籍名称

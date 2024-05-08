@@ -7,7 +7,7 @@ date: 2024-03-20
 
 
 
-# element-plus
+## element-plus
 
 - 搭建环境
 
@@ -35,9 +35,9 @@ date: 2024-03-20
 
      Element UI Snippets
 
-## 基本组件
+### 基本组件
 
-### 布局容器el-container
+#### 布局容器el-container
 
 ```html
 <el-container>//相当于一个div!
@@ -48,7 +48,7 @@ date: 2024-03-20
 
 
 
-### 导航条el-menu（template #title插槽）
+#### 导航条el-menu（template #title插槽）
 
 ```html
 //1.router属性：开启路由模式，index属性相当于router-link里的to属性，写路由路径
@@ -82,7 +82,7 @@ router属性最好写成:router
 
 
 
-### 表单el-form (label和placeholder)
+#### 表单el-form (label和placeholder)
 
 - el-input
 
@@ -168,7 +168,7 @@ el-form
 
 - 表单验证规则，elform 绑定rules elfi写上prop，在data里编写rules规则
 
-### 表格el-table
+#### 表格el-table
 
 ```html
 //1.el-table的data属性, 绑一个数组
@@ -194,7 +194,7 @@ el-form
 
 align属性可以设置对齐方式
 
-### 对话框el-dialog
+#### 对话框el-dialog
 
 ```html
 //1.el-dialog的v-model: 控制显示
@@ -217,18 +217,7 @@ align属性可以设置对齐方式
 
 
 
-
-
-## 获取行内数据
-
-```html
-<template v-slot="scope">
-    <el-button type="primary" @click="getUserById(scope.row)">详情</el-button>
-    <el-button type="danger">删除</el-button>
-</template>
-```
-
-## 表单验证规则
+### 表单验证规则
 
 ```vue
 //1.
@@ -256,7 +245,7 @@ this.$refs.form.validate((validated)=>{
 
 
 
-## 带复选框的表格
+### 带复选框的表格
 
 ```html
 //每次勾选复选框触发一个事件, 参数是勾选的对象的数组
@@ -267,7 +256,7 @@ this.$refs.form.validate((validated)=>{
 
 
 
-## 文件上传
+### 文件上传
 
 ```js
 this.$refs.uploadRef.submit()
@@ -278,4 +267,26 @@ this.$refs.uploadRef.submit()
 
 
 
-## 模糊查询-前端
+### 模糊查询-前端
+
+## template的使用
+
+### 获取行内数据
+
+```html
+<template v-slot="scope">
+    <el-button type="primary" @click="getUserById(scope.row)">详情</el-button>
+    <el-button type="danger">删除</el-button>
+</template>
+```
+
+### 根据内容选择输出
+
+```html
+<el-table-column prop="status" label="售卖状态">
+    <template slot-scope="scope">
+        {{ scope.row.status === 1 ? 起售 : 停售 }}
+    </template>
+</el-table-column>
+```
+
