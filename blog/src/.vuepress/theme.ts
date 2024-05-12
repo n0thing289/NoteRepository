@@ -218,6 +218,6 @@ export default hopeTheme({
     copyright: true,
   },
   //我添加的配置
-  // pure: true,
+  pure: true,
   headerDepth: 7,
 });
