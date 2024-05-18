@@ -49,12 +49,12 @@ export default hopeTheme({
     name: "n0thing"
   },
 
-  // 加密配置
-  encrypt: {
-    config: {
-      "/demo/encrypt.html": ["1234"],
-    },
-  },
+  // 加密配置, 已在下发配置
+  // encrypt: {
+  //   config: {
+  //     "/demo/encrypt.html": ["1234"],
+  //   },
+  // },
 
   // 多语言配置
   metaLocales: {
@@ -220,4 +220,10 @@ export default hopeTheme({
   //我添加的配置
   pure: true,
   headerDepth: 7,
+  encrypt: {
+    config: {
+      // 这会加密整个 guide 目录，并且两个密码都是可用的
+      "/插本/": ["18080", "hwk123"],
+    },
+  },
 });

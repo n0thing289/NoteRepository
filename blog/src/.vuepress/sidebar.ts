@@ -34,6 +34,13 @@ export default sidebar({
       link: "readingNotes/",
       children: "structure",
     },
+    // {
+    //   text: "go",
+    //   icon: "book",
+    //   prefix: "插本/",
+    //   link: "插本/",
+    //   children: "structure",
+    // },
     "intro",
   ],
 });
