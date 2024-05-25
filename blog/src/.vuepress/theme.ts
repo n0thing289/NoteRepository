@@ -220,13 +220,13 @@ export default hopeTheme({
   //我添加的配置
   pure: true,
   headerDepth: 7,
-  encrypt: {
-    //全局加密
-    global: true,
-    admin: ["289273"],
-    // config: {
-    //   // 这会加密整个 guide 目录，并且两个密码都是可用的
-    //   "/插本/": ["18080", "hwk123"],
-    // },
-  },
+  // encrypt: {
+  //   //全局加密
+  //   global: true,
+  //   admin: ["289273"],
+  //   // config: {
+  //   //   // 这会加密整个 guide 目录，并且两个密码都是可用的
+  //   //   "/插本/": ["18080", "hwk123"],
+  //   // },
+  // },
 });
